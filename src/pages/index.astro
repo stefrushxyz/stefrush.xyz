@@ -1,0 +1,68 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Title from '../components/Title.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import Logo from '../components/Logo.astro';
+import { Props as ProjectProps } from '../components/Project.astro';
+import { Props as ProjectCardProps } from '../components/ProjectCard.astro';
+
+interface Project extends ProjectProps, ProjectCardProps {}
+
+const me = 'Stefan Rush';
+const title = `${me} - Software Portfolio`;
+export const projects: Project[] = [
+    {
+        name: 'amane.chat',
+        desc: 'A drawing app for the browser which uses face landmark data inferred from user webcam video to animate users\' drawings with their own facial expressions and movements',
+        tech: 'Javascript, React, Canvas, Face Mesh machine learning model',
+        source: 'https://github.com/stefrushxyz/amane.chat',
+        liveDemo: 'https://amanechat.stefrush.xyz',
+        status: 'Work in progress',
+        videoDemo: '/demos/amanechat.gif',
+        href: '/projects/amane.chat',
+    },
+    {
+        name: 'mb9k',
+        desc: 'A web service capable of accepting incoming RTMP video streams and running a machine learning algorithm on the video frames (mask detection in this case)',
+        tech: 'Python, Django, TensorFlow, FFmpeg, Docker, PostgreSQL, Redis, Javascript',
+        source: 'https://github.com/stefrushxyz/mb9k',
+        liveDemoExplanation: 'Don\'t want to use server resources on this right now',
+        status: 'Stable',
+        videoDemo: '/demos/mb9k.gif',
+        href: '/projects/mb9k',
+    },
+    {
+        name: 'Gaussian Mixture Model Animation',
+        desc: 'An implementation and animation of a Guassian Mixture Model fit to a dataset of earthquake locations near Fiji',
+        tech: 'Python, JupyterLab, NumPy, Matplotlib',
+        source: 'https://github.com/stefrushxyz/gmm-animation',
+        liveDemoExplanation: 'If you know of a good way to demo Jupyter Notebooks online please let me know!',
+        status: 'Complete',
+        videoDemo: '/demos/gmm-animation.gif',
+        href: '/projects/gmm-animation',
+    },
+    {
+        name: 'stefrush.xyz',
+        desc: 'A static website built to showcase my work on recent software projects',
+        tech: 'Astro, Typescript, TailwindCSS',
+        source: 'https://github.com/stefrushxyz/stefrush.xyz',
+        liveDemoExplanation: 'You\'re looking at it!',
+        status: 'Complete',
+        href: '/projects/stefrush.xyz',
+    },
+];
+export const AMANECHAT = 0;
+export const MB9K = 1;
+export const GMM_ANIMATION = 2;
+export const STEFRUSHXYZ = 3;
+---
+
+<Layout title={title}>
+    <Title text={title} />
+    <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 pb-8">
+        {projects.map(({ name, desc, tech, href }) => (
+            <ProjectCard name={name} desc={desc} tech={tech} href={href} />
+        ))}
+    </ul>
+    <Logo />
+</Layout>

@@ -1,0 +1,11 @@
+---
+export interface Props {
+    src: string;
+    alt: string;
+}
+
+const { src, alt } = Astro.props;
+---
+
+<h2 class="text-center font-bold pb-4">Video Demo:</h2>
+<img class="border border-nord-3 rounded mx-auto mb-8" src={src} alt={alt} />

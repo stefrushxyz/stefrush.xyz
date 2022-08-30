@@ -1,0 +1,29 @@
+---
+export interface Props {
+    title: string;
+}
+
+const { title } = Astro.props;
+const navText = 'stefrush.xyz';
+---
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="generator" content={Astro.generator} />
+        <title>{title}</title>
+    </head>
+    <body class="bg-nord-0 text-nord-6 font-mono">
+        <nav class="bg-nord-10">
+            <div class="container mx-auto">
+                <a class="text-xl text-center font-bold italic block w-full p-4 hover:underline" href="/">{navText}</a>
+            </div>
+        </nav>
+        <main class="container mx-auto px-4">
+            <slot />
+        </main>
+    </body>
+</html>

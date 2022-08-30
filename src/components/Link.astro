@@ -1,0 +1,10 @@
+---
+export interface Props {
+    href: string;
+    text?: string;
+}
+
+const { href, text } = Astro.props;
+---
+
+<a class="text-nord-8 text-underline break-words hover:text-nord-10 transition-colors" href={href}>{text ?? href}</a>

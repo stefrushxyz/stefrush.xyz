@@ -1,0 +1,16 @@
+---
+import Project from '../../components/Project.astro';
+import { projects, MB9K } from '../index.astro';
+
+const project = projects[MB9K];
+---
+
+<Project 
+    name={project.name}
+    desc={project.desc}
+    tech={project.tech}
+    status={project.status}
+    source={project.source}
+    liveDemoExplanation={project.liveDemoExplanation}
+    videoDemo={project.videoDemo}
+/>

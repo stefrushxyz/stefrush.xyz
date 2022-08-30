@@ -1,0 +1,16 @@
+---
+import Project from '../../components/Project.astro';
+import { projects, GMM_ANIMATION } from '../index.astro';
+
+const project = projects[GMM_ANIMATION];
+---
+
+<Project 
+    name={project.name}
+    desc={project.desc}
+    tech={project.tech}
+    status={project.status}
+    source={project.source}
+    liveDemoExplanation={project.liveDemoExplanation}
+    videoDemo={project.videoDemo}
+/>

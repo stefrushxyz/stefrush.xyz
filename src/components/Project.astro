@@ -1,0 +1,42 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Title from './Title.astro';
+import Link from './Link.astro';
+import VideoDemo from './VideoDemo.astro';
+
+export interface Props {
+    name: string;
+    desc: string;
+    tech: string;
+    source: string;
+    liveDemo?: string;
+    liveDemoExplanation?: string;
+    status?: string;
+    videoDemo?: string;
+}
+
+const { name, desc, tech, source, liveDemo, liveDemoExplanation, status, videoDemo } = Astro.props;
+---
+
+<Layout title={name}>
+    <Title text={name} />
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 pb-8">
+        <div>
+            <p class="pb-2">{desc}</p>
+            <p><span class="font-bold">Tech:</span> {tech}</p>
+        </div>
+        <div>
+            <p class="pb-2"><span class="font-bold">Source:</span> <Link href={source} /></p>
+            {liveDemo && (
+                <p class="pb-2"><span class="font-bold">Live Demo:</span> <Link href={liveDemo} /></p>
+            )}
+            {liveDemoExplanation && (
+                <p class="pb-2"><span class="font-bold">Live Demo:</span> {liveDemoExplanation}</p>
+            )}
+            {status && (
+                <p><span class="font-bold">Status:</span> {status}</p>
+            )}
+        </div>
+    </div>
+    {videoDemo && <VideoDemo src={videoDemo} alt={`${name} demo`} />}
+</Layout>

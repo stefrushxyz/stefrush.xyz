@@ -1,0 +1,18 @@
+---
+export interface Props {
+    name: string;
+    desc: string;
+    tech: string;
+    href: string;
+}
+
+const { name, desc, tech, href } = Astro.props;
+---
+
+<li class="bg-nord-3 text-nord-4 border border-nord-4 rounded hover:bg-nord-1 transition-colors">
+    <a class="p-4 block" href={href}>
+        <h2 class="text-center pb-2"><span class="underline">{name}</span> &raquo;</h2>
+        <p class="pb-2">{desc}</p>
+        <p><span class="font-bold">Tech:</span> {tech}</p>
+    </a>
+</li>
