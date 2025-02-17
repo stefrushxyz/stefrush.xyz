@@ -1,0 +1,34 @@
+{
+  "name": "stefrushxyz",
+  "private": true,
+  "workspaces": ["packages/*"],
+  "scripts": {
+    "dev": "sst dev",
+    "sso": "aws sso login",
+    "db": "cd packages/core && bun run db",
+    "db:push": "cd packages/core && bun run db:push",
+    "db:connect": "cd packages/core && bun run db:connect",
+    "shadd": "cd packages/ui && bun run shadd",
+    "check": "bun run format:check && bun run imports:check && bun run lint:check && bun run deps:check",
+    "format:check": "bun x @biomejs/biome format .",
+    "imports:check": "bun x @biomejs/biome check --organize-imports-enabled=true --formatter-enabled=false --linter-enabled=false .",
+    "lint:check": "bun x @biomejs/biome lint .",
+    "deps:check": "bun x check-dependency-version-consistency .",
+    "fix": "bun run format:fix && bun run imports:fix && bun run lint:fix && bun run deps:fix",
+    "format:fix": "bun x @biomejs/biome format --write .",
+    "imports:fix": "bun x @biomejs/biome check --write --organize-imports-enabled=true --formatter-enabled=false --linter-enabled=false .",
+    "lint:fix": "bun x @biomejs/biome lint --write --unsafe .",
+    "deps:fix": "bun x check-dependency-version-consistency --fix .",
+    "up": "bun update && for d in ./packages/*/; do (cd \"$d\" && bun update); done"
+  },
+  "dependencies": {
+    "sst": "^3.9.4"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "@tsconfig/node20": "^20.1.4",
+    "@types/bun": "^1.2.2",
+    "check-dependency-version-consistency": "^5.0.0",
+    "typescript": "^5.7.3"
+  }
+}
