@@ -9,6 +9,10 @@ declare module "sst" {
       "type": "sst.aws.Nextjs"
       "url": string
     }
+    "Solid": {
+      "type": "sst.aws.SolidStart"
+      "url": string
+    }
   }
 }
 /// <reference path="sst-env.d.ts" />

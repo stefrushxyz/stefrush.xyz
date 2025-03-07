@@ -1,7 +1,9 @@
 node_modules/
 .next/
 .open-next/
+.output/
 .sst/
+.vinxi/
 next-env.d.ts
 .env*
 *.pem

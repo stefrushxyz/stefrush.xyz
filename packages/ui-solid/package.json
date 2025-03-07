@@ -1,0 +1,11 @@
+{
+  "name": "@stefrushxyz/ui-solid",
+  "private": true,
+  "sideEffects": ["**/*.css"],
+  "exports": {
+    "./components/*": "./src/components/*.tsx"
+  },
+  "dependencies": {
+    "solid-js": "^1.9.5"
+  }
+}
