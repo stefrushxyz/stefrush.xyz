@@ -46,19 +46,8 @@ export default $config({
         : undefined,
     });
 
-    const solid = new sst.aws.SolidStart("Solid", {
-      path: "./packages/solid",
-      domain: isPermanent
-        ? {
-            name: `solid.${domain}`,
-            dns: sst.cloudflare.dns(),
-          }
-        : undefined,
-    });
-
     return {
       next: next.url,
-      solid: solid.url,
     };
   },
 });
